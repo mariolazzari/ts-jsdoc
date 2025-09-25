@@ -1,13 +1,19 @@
 # JavaScript: Five Advanced Challenges and Concepts
 
-## Nested relationships
+## Incorporating JSDoc
 
-### Nested comments
+### Configuring TypeScript project
 
 ```sh
 pnpm init
 pnpm add -D typescript @types/node
-pnpm add 
 tsc --init
+```
 
+### Writing TypeScript function
+
+```ts
+function greetings(name: string): string {
+  return `Hello, ${name}!`;
+}
 ```
