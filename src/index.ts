@@ -1,12 +1,8 @@
-/**
- * Greets people with their name.
- * @param {string} name - The name of the person to greet.
- * @returns {string} A greeting message.
- * @example
- * console.log(greetings("Mario")); // "Hello, Mario!"
- */
-function greetings(name: string): string {
-  return `Hello, ${name}!`;
-}
+import { Country } from "./Country";
+import { greetings } from "./script";
 
 console.log(greetings("Mario"));
+
+const italy = new Country("Italy", "IT");
+italy.addLanguage("Italian");
+console.log(italy);
