@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docs": "jsdoc -c jsdoc.json",
     "dev": "tsx watch src/index.ts",
     "build": "tsc"
   },
@@ -13,6 +14,8 @@
   "packageManager": "pnpm@10.17.1",
   "devDependencies": {
     "@types/node": "^24.5.2",
+    "clean-jsdoc-theme": "^4.3.0",
+    "jsdoc": "^4.0.4",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }

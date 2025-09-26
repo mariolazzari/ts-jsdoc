@@ -145,6 +145,138 @@ export class Country {
 
 ### Generating a website with JSDoc
 
-```ts
+```sh
+touch jsdoc.json
+pnpm add -D jsdoc
+```
 
+```json
+{
+  "source": {
+    "includePattern": ".+\\.(js|ts)$",
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  },
+  "plugins": ["jsdoc-babel"],
+  "babel": {
+    "extensions": "ts",
+    "ignore": ["**/*.(test|spec).ts"]
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true
+  }
+}
+```
+
+### Selecting custom theme
+
+[Clean JSDoc](https://www.npmjs.com/package/clean-jsdoc-theme/v/4.2.9)
+
+```sh
+pnpm add -D clean-jsdoc-theme
+```
+
+```json
+{
+  "source": {
+    "includePattern": ".+\\.(js|ts)$",
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  },
+  "plugins": ["jsdoc-babel"],
+  "babel": {
+    "extensions": "ts",
+    "ignore": ["**/*.(test|spec).ts"]
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "template": "node_modules/clean-jsdoc-theme"
+  }
+}
+```
+
+### Enabling Markdown
+
+```json
+{
+  "source": {
+    "includePattern": ".+\\.(js|ts)$",
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  },
+  "markdown": {
+    "idInHeadings": true,
+    "hardwrap": false
+  },
+  "plugins": ["jsdoc-babel", "plugins/markdown"],
+  "babel": {
+    "extensions": "ts",
+    "ignore": ["**/*.(test|spec).ts"]
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "template": "node_modules/clean-jsdoc-theme"
+  }
+}
+```
+
+```ts
+/**
+ * Represents a country with its name, country code, and spoken languages.
+ *
+ * ## Usage Example
+ * ```js
+ * const italy = new Country("Italy", "IT");
+ * italy.addLanguage("Italian");
+ * console.log({ italy });
+ * ```
+ *
+ *
+ * @class
+ */
+class Country {
+  /**
+   * The full name of the country.
+   * @readonly
+   * @type {string}
+   */
+  readonly name: string;
+  /**
+   * The ISO country code.
+   * @readonly
+   * @type {string}
+   */
+  readonly code: string;
+  /**
+   * An array of languages spoken in the country
+   * @type {string[]}
+   * @default []
+   */
+  languages: string[] = [];
+
+  /**
+   * Creates a new Country instance
+   * @param {string} name - The full name of the country
+   * @param {string} code - The ISO country code (e.g. "IT" for Italy)
+   * @example
+   * const italy = new Country("Italy", "IT")
+   */
+  constructor(name: string, code: string) {
+    this.name = name;
+    this.code = code;
+  }
+  /**
+   * Add a spoken language to the country.
+   * @param {string} language - The name of the language to add
+   * @returns {void}
+   * @example
+   * italy.addLanguage("Italian");
+   */
+  addLanguage(language: string) {
+    this.languages.push(language);
+  }
+}
 ```

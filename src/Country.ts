@@ -1,42 +1,53 @@
 /**
- * Class representing a country.
+ * Represents a country with its name, country code, and spoken languages.
+ *
+ * ## Usage Example
+ * ```js
+ * const italy = new Country("Italy", "IT");
+ * italy.addLanguage("Italian");
+ * console.log({ italy });
+ * ```
+ *
+ *
  * @class
  */
-
 export class Country {
   /**
-   * Creates an instance of Country.
-   * @param {string} name - The name of the country.
-   * @param {string} code - The ISO code of the country.
+   * The full name of the country.
+   * @readonly
+   * @type {string}
    */
   readonly name: string;
-  readonly code: string;
-
   /**
-   * List of languages spoken in the country.
+   * The ISO country code.
+   * @readonly
+   * @type {string}
+   */
+  readonly code: string;
+  /**
+   * An array of languages spoken in the country
    * @type {string[]}
    * @default []
    */
   languages: string[] = [];
 
   /**
-   * Creates an instance of Country.
-   * @param {string} name - The name of the country.
-   * @param {string} code - The ISO code of the country.
+   * Creates a new Country instance
+   * @param {string} name - The full name of the country
+   * @param {string} code - The ISO country code (e.g. "IT" for Italy)
    * @example
-   * const country = new Country('Italia', 'IT');
+   * const italy = new Country("Italy", "IT")
    */
   constructor(name: string, code: string) {
     this.name = name;
     this.code = code;
   }
-
   /**
-   * Adds a language to the list of languages spoken in the country.
-   * @param {string} language - The language to add.
+   * Add a spoken language to the country.
+   * @param {string} language - The name of the language to add
    * @returns {void}
    * @example
-   * country.addLanguage('Italian');
+   * italy.addLanguage("Italian");
    */
   addLanguage(language: string) {
     this.languages.push(language);
