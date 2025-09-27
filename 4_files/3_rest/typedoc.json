@@ -1,0 +1,10 @@
+{
+  "entryPoints": ["src/**/*.ts"],
+  "out": "docs",
+  "name": "Country Project",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "theme": "default",
+  "categorizeByGroup": true,
+  "readme": "./README.md"
+}
