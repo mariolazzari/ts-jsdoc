@@ -1,0 +1,22 @@
+{
+  "name": "typescript-and-jsdoc",
+  "version": "1.0.0",
+  "description": "A project that teaches us how to work with JSDoc",
+  "main": "index.js",
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "clean-jsdoc-theme": "^4.3.0",
+    "jsdoc": "^4.0.4",
+    "jsdoc-babel": "^0.5.0"
+  }
+}
